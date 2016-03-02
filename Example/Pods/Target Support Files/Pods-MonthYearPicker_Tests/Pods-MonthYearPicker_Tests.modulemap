@@ -1,0 +1,6 @@
+framework module Pods_MonthYearPicker_Tests {
+  umbrella header "Pods-MonthYearPicker_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

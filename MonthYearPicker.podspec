@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = "MonthYearPicker"
-  s.version          = "0.1.0"
-  s.summary          = "A short description of MonthYearPicker."
+  s.version          = "1.0.0"
+  s.summary          = "A UIDatePicker subclass that allows users to select a month and a year"
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,24 +17,21 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!  
   s.description      = <<-DESC
+    `UIDatePicker` doesn't have a mode for month/year, which is commonly used
+in credit card forms. MonthYearPicker is a `UIDatePicker` subclass that displays
+ localized months and years.
                        DESC
 
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/MonthYearPicker"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+  s.homepage         = "https://github.com/alexanderedge/MonthYearPicker"
   s.license          = 'MIT'
   s.author           = { "Alexander Edge" => "alex@alexedge.co.uk" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/MonthYearPicker.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => "https://github.com/alexanderedge/MonthYearPicker.git", :tag => s.version.to_s }
+  # s.social_media_url = 'https://twitter.com/alexedge'
 
   s.platform     = :ios, '8.0'
   s.requires_arc = true
 
-  s.source_files = 'Pod/Classes/**/*'
-  s.resource_bundles = {
-    'MonthYearPicker' => ['Pod/Assets/*.png']
-  }
+  s.source_files = 'Sources/**/*'
+  s.frameworks = 'UIKit'
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end

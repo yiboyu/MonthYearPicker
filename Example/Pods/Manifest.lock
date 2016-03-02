@@ -1,0 +1,14 @@
+PODS:
+  - MonthYearPicker (1.0.0)
+
+DEPENDENCIES:
+  - MonthYearPicker (from `../`)
+
+EXTERNAL SOURCES:
+  MonthYearPicker:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  MonthYearPicker: 7245a6aaac77be3c9548789098a57ec74af383f2
+
+COCOAPODS: 0.39.0
