@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'MonthYearPicker_Example', :exclusive => true do
+  pod 'MonthYearPicker', :path => '../'
+end
+
+target 'MonthYearPicker_Tests', :exclusive => true do
+  pod 'MonthYearPicker', :path => '../'
+
+  
+end
