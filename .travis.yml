@@ -4,7 +4,7 @@
 
 language: objective-c
 rvm:
-- 1.9.3
+- 2.2.3
 cache: cocoapods
 podfile: Example/Podfile
 before_install:
