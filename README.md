@@ -1,6 +1,5 @@
 # MonthYearPicker
 
-[![CI Status](http://img.shields.io/travis/alexanderedge/MonthYearPicker.svg?style=flat)](https://travis-ci.org/alexanderedge/MonthYearPicker)
 [![Version](https://img.shields.io/cocoapods/v/MonthYearPicker.svg?style=flat)](http://cocoapods.org/pods/MonthYearPicker)
 [![License](https://img.shields.io/cocoapods/l/MonthYearPicker.svg?style=flat)](http://cocoapods.org/pods/MonthYearPicker)
 [![Platform](https://img.shields.io/cocoapods/p/MonthYearPicker.svg?style=flat)](http://cocoapods.org/pods/MonthYearPicker)
