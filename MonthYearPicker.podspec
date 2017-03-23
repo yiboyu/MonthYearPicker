@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "MonthYearPicker"
-  s.version          = "1.0.0"
+  s.version          = "2.0.0"
   s.summary          = "A UIDatePicker subclass that allows users to select a month and a year"
 
 # This description is used to generate tags and improve search results.
