@@ -24,13 +24,13 @@
 
 import UIKit
 
-open class MonthYearPickerView: UIPickerView {
+open class MonthYearPickerView: UIControl {
     
     open var date: Date = Date() {
         didSet {
             let newDate = calendar.startOfDay(for: date)
             setDate(newDate, animated: true)
-            dateSelectionHandler?(newDate)
+            sendActions(for: .valueChanged)
         }
     }
     
@@ -50,9 +50,15 @@ open class MonthYearPickerView: UIPickerView {
             yearDateFormatter.locale = locale
         }
     }
-    
-    open var dateSelectionHandler: ((Date) -> Void)?
-    
+
+    lazy fileprivate var pickerView: UIPickerView = {
+        let pickerView = UIPickerView(frame: self.bounds)
+        pickerView.dataSource = self
+        pickerView.delegate = self
+        pickerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        return pickerView
+    }()
+
     lazy fileprivate var monthDateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.setLocalizedDateFormatFromTemplate("MMMM")
@@ -81,12 +87,11 @@ open class MonthYearPickerView: UIPickerView {
     }
     
     private func initialSetup() {
+        addSubview(pickerView)
         let timeZone = TimeZone(secondsFromGMT: 0)!
         var calendar = Calendar.autoupdatingCurrent
         calendar.timeZone = timeZone
         self.calendar = calendar
-        dataSource = self
-        delegate = self
         setDate(date, animated: false)
     }
     
@@ -95,9 +100,9 @@ open class MonthYearPickerView: UIPickerView {
             return
         }
         let month = calendar.component(.month, from: date) - monthRange.lowerBound
-        selectRow(month, inComponent: Component.month.rawValue, animated: animated)
+        pickerView.selectRow(month, inComponent: Component.month.rawValue, animated: animated)
         let year = calendar.component(.year, from: date) - yearRange.lowerBound
-        selectRow(year, inComponent: Component.year.rawValue, animated: animated)
+        pickerView.selectRow(year, inComponent: Component.year.rawValue, animated: animated)
     }
     
 }

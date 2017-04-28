@@ -5,20 +5,18 @@
 [![License](https://img.shields.io/cocoapods/l/MonthYearPicker.svg?style=flat)](http://cocoapods.org/pods/MonthYearPicker)
 [![Platform](https://img.shields.io/cocoapods/p/MonthYearPicker.svg?style=flat)](http://cocoapods.org/pods/MonthYearPicker)
 
-This is a `UIDatePicker` subclass that allows date selection using month / year. It is locale-aware and shows localised values.
+This is a `UIControl` subclass that allows date selection using month / year, unlike `UIDatePicker` which displays year, month, and day. This makes `MonthYearPicker` useful for credit card expiry dates, for example. It is locale-aware and shows localised values.
 
 ![Screenshot](https://raw.githubusercontent.com/alexanderedge/MonthYearPicker/master/screenshot.png)
 
 ## Usage
 
-Initialise the picker just like you would `UIPickerView`. You can set a closure to execute when the date changes using the `dateSelectionHandler` property.
+Initialise `MonthYearPicker` in the same way you would a `UIPickerView` instance.
 
 ```
-let picker = MonthYearPickerView(frame: CGRect(origin: CGPoint(x: 0, y: (CGRectGetHeight(view.bounds) - 216) / 2), size: CGSize(width: CGRectGetWidth(view.bounds), height: 216)))
-picker.dateSelectionHandler = { date in
-  print("selected: \(date)")
-}
-self.view.addSubview(picker)
+let picker = MonthYearPickerView(frame: CGRect(origin: CGPoint(x: 0, y: (view.bounds.height - 216) / 2), size: CGSize(width: view.bounds.width, height: 216)))
+picker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
+view.addSubview(picker)
 ```
 
 ## Requirements

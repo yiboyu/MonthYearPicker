@@ -30,27 +30,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        
+
         let picker = MonthYearPickerView(frame: CGRect(origin: CGPoint(x: 0, y: (view.bounds.height - 216) / 2), size: CGSize(width: view.bounds.width, height: 216)))
-        
-        
-        picker.dateSelectionHandler = { date in
-            print("selected: \(date)")
-        }
-        
+        picker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
         view.addSubview(picker)
         
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(2 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)) {
-            var dateComponents = DateComponents()
-            dateComponents.year = 2020
-            dateComponents.month = 1
-            
-            let date = Calendar.current.date(from: dateComponents)!
-            
-            picker.date = date
-        }
-        
+    }
+
+    func dateChanged(_ picker: MonthYearPickerView) {
+        print("date changed: \(picker.date)")
     }
     
     override func viewDidAppear(_ animated: Bool) {
