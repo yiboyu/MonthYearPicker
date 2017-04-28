@@ -25,7 +25,8 @@
 import UIKit
 
 open class MonthYearPickerView: UIControl {
-    
+
+    /// default is current date when picker created
     open var date: Date = Date() {
         didSet {
             let newDate = calendar.startOfDay(for: date)
@@ -33,7 +34,8 @@ open class MonthYearPickerView: UIControl {
             sendActions(for: .valueChanged)
         }
     }
-    
+
+    /// default is current calendar when picker created
     open var calendar: Calendar = Calendar.autoupdatingCurrent {
         didSet {
             monthDateFormatter.calendar = calendar
@@ -42,7 +44,8 @@ open class MonthYearPickerView: UIControl {
             yearDateFormatter.timeZone = calendar.timeZone
         }
     }
-    
+
+    /// default is nil
     open var locale: Locale? {
         didSet {
             calendar.locale = locale
@@ -94,7 +97,8 @@ open class MonthYearPickerView: UIControl {
         self.calendar = calendar
         setDate(date, animated: false)
     }
-    
+
+    /// if animated is YES, animate the wheels of time to display the new date
     open func setDate(_ date: Date, animated: Bool) {
         guard let yearRange = calendar.maximumRange(of: .year), let monthRange = calendar.maximumRange(of: .month) else {
             return
