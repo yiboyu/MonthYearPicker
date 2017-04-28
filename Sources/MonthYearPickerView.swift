@@ -91,10 +91,7 @@ open class MonthYearPickerView: UIControl {
     
     private func initialSetup() {
         addSubview(pickerView)
-        let timeZone = TimeZone(secondsFromGMT: 0)!
-        var calendar = Calendar.autoupdatingCurrent
-        calendar.timeZone = timeZone
-        self.calendar = calendar
+        calendar.timeZone = TimeZone(secondsFromGMT: 0)!
         setDate(date, animated: false)
     }
 
