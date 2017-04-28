@@ -144,7 +144,6 @@ extension MonthYearPickerView: UIPickerViewDataSource {
     }
     
     public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        
         guard let component = Component(rawValue: component) else { return 0 }
         switch component {
         case .month:
